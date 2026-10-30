@@ -252,7 +252,7 @@
           <div class="cols">${buckets.map(x => `<div class="col" data-tip="${x.s.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}: ${x.n}"><i style="height:${x.n / bmax * 100}%"></i></div>`).join('')}</div>
           <div class="xl">${buckets.map((x, k) => `<span>${k % Math.ceil(days / 6) === 0 ? x.s.toLocaleDateString(undefined, { month: 'short', day: 'numeric' }) : ''}</span>`).join('')}</div></div>
         ${has('quality') ? `<div class="card w4"><h3>Did they get a quality experience?</h3><p class="hint">The headline question</p>
-          ${hbars(countBy(list, 'quality', ['yes', 'mostly', 'no']), n, { keepOrder: true, label: k => T.en.quality[k] || k })}</div>` : ''}
+          ${hbars(countBy(list, 'quality', FB.qualityFor(b)), n, { keepOrder: true, label: k => T.en.quality[k] || k })}</div>` : ''}
         ${has('scores') ? `<div class="card"><h3>Ratings by area</h3><p class="hint">Average out of 5. Lowest bar = where to focus</p>${n ? avgBars(list) : '<div class="empty">No answers yet</div>'}</div>` : ''}
         ${has('nps') ? `<div class="card"><h3>Recommend (0–10)</h3><p class="hint">${prom} promoters · ${npsList.length - prom - det} passive · ${det} detractors</p>
           <div class="cols" style="height:120px">${npsHist.map((c, k) => `<div class="col" data-tip="${k}: ${c}"><i style="height:${c / hmax * 100}%"></i></div>`).join('')}</div>

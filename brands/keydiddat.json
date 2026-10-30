@@ -36,15 +36,13 @@
     "Wash & style": "Lavage + coiffure",
     "Other": "Autre",
     "Loc extensions": "Extensions de locs",
-    "Colour / dye": "Coloration",
-    "Scalp treatments": "Soins du cuir chevelu",
-    "Kids locs": "Locs pour enfants",
     "Bridal & event styling": "Coiffure mariage et événements",
     "Home-care products": "Produits d'entretien maison",
     "Loc jewelry & accessories": "Bijoux et accessoires de locs",
     "Turbans & wraps": "Turbans et foulards",
     "Monthly maintenance plan": "Forfait d'entretien mensuel",
-    "Evening appointments": "Rendez-vous en soirée"
+    "Gift cards": "Cartes-cadeaux",
+    "Loc care workshops": "Ateliers d'entretien de locs"
   },
   "steps": [
     "intro",
@@ -94,6 +92,10 @@
         {
           "en": "This was my first time",
           "fr": "C'était ma première fois"
+        },
+        {
+          "en": "I don't wash my hair",
+          "fr": "Je ne lave pas mes cheveux"
         }
       ]
     },
@@ -213,10 +215,6 @@
         {
           "en": "5+ years",
           "fr": "5 ans et plus"
-        },
-        {
-          "en": "No locs (other service)",
-          "fr": "Pas de locs (autre service)"
         }
       ]
     },
@@ -308,6 +306,10 @@
           "fr": "Excellent rapport qualité-prix"
         },
         {
+          "en": "More than fair",
+          "fr": "Plus que correct"
+        },
+        {
           "en": "Fair",
           "fr": "Correct"
         },
@@ -343,10 +345,6 @@
         {
           "en": "Saturday",
           "fr": "Samedi"
-        },
-        {
-          "en": "Sunday",
-          "fr": "Dimanche"
         }
       ]
     }
@@ -385,14 +383,18 @@
   "logoStyle": "gold3d",
   "wants": [
     "Loc extensions",
-    "Colour / dye",
-    "Scalp treatments",
-    "Kids locs",
     "Bridal & event styling",
     "Home-care products",
     "Loc jewelry & accessories",
     "Turbans & wraps",
     "Monthly maintenance plan",
-    "Evening appointments"
+    "Gift cards",
+    "Loc care workshops"
+  ],
+  "qualityScale": [
+    "yes",
+    "great",
+    "mostly",
+    "no"
   ]
 }

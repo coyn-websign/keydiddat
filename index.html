@@ -248,7 +248,7 @@
         </div>`;
       case 'service': return `<p class="kicker">${num()}</p><h2>${L.q_service}</h2><p class="sub"></p>${chips(b.services, ans.service, 'service')}${nav(step)}`;
       case 'quality': return `<p class="kicker">${num()}</p><h2>${L.q_quality}</h2><p class="sub"></p>
-        <div class="opts one">${[['yes', '🔥'], ['mostly', '👌'], ['no', '😕']].map(([v, em]) =>
+        <div class="opts one">${FB.qualityFor(b).map(v => [v, { yes: '🔥', great: '✨', mostly: '👌', no: '😕' }[v]]).map(([v, em]) =>
           `<button class="opt big${ans.quality === v ? ' on' : ''}" data-k="quality" data-v="${v}"><span class="em">${em}</span><b>${L.quality[v]}</b></button>`).join('')}</div>${nav(step)}`;
       case 'rating': return `<p class="kicker">${num()}</p><h2>${L.q_rating}</h2><p class="sub"></p>
         <div class="stars">${[1, 2, 3, 4, 5].map(n => `<button class="star${ans.rating >= n ? ' on' : ''}" data-k="rating" data-v="${n}" aria-label="${n}/5">${STAR}</button>`).join('')}</div>
@@ -425,7 +425,7 @@
   function mail(d) {
     const S = T.en.scores, has = new Set(STEPS.map(s => s.id)), L = textFor(b, 'en');
     const data = {
-      _subject: `New feedback ✂️ ${d.quality === 'yes' ? '🔥' : d.quality === 'mostly' ? '👌' : '😕'}${d.rating ? ' ' + d.rating + '/5' : ''} · ${b.name}`,
+      _subject: `New feedback ✂️ ${{ yes: '🔥', great: '✨', mostly: '👌', no: '😕' }[d.quality] || ''}${d.rating ? ' ' + d.rating + '/5' : ''} · ${b.name}`,
       _template: 'table', _captcha: 'false'
     };
     for (const s of STEPS) {

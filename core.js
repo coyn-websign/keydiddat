@@ -41,7 +41,7 @@
       next: 'Next', back: 'Back', skip: 'Skip', send: 'Send it', sending: 'Sending…',
       q_service: 'What did you get today?',
       q_quality: 'Did you receive a quality experience?',
-      quality: { yes: 'Yes, 100%', mostly: 'Mostly', no: 'Not really' },
+      quality: { yes: 'Yes, 100%', great: 'Really good', mostly: 'Mostly', no: 'Not really' },
       q_rating: 'Rate the cut itself',
       rating_lo: 'Not it', rating_hi: 'Perfect',
       q_scores: 'Quick ratings',
@@ -69,7 +69,7 @@
       next: 'Suivant', back: 'Retour', skip: 'Passer', send: 'Envoyer', sending: 'Envoi…',
       q_service: "Qu'est-ce que tu as fait aujourd'hui?",
       q_quality: 'As-tu reçu une expérience de qualité?',
-      quality: { yes: 'Oui, 100 %', mostly: 'Plutôt', no: 'Pas vraiment' },
+      quality: { yes: 'Oui, 100 %', great: 'Vraiment bien', mostly: 'Plutôt', no: 'Pas vraiment' },
       q_rating: 'Note la coupe',
       rating_lo: 'Bof', rating_hi: 'Parfaite',
       q_scores: 'Notes rapides',
@@ -106,6 +106,8 @@
   // Default question order. A brand can set its own `steps` and add `questions`
   // ({ id, type: 'choice' | 'multi' | 'text', en, fr, options: [{ en, fr }] }); answers land in response.custom.
   const DEFAULT_STEPS = ['intro', 'service', 'quality', 'rating', 'scores', 'nps', 'again', 'source', 'wants', 'improve', 'last', 'thanks'];
+  const QUALITY = ['yes', 'mostly', 'no'];
+  function qualityFor(b) { return (b && b.qualityScale) || QUALITY; }
   function stepsFor(b) { return (b && b.steps && b.steps.length) ? b.steps : DEFAULT_STEPS; }
   function customQ(b, id) { return ((b && b.questions) || []).find(q => q.id === id) || null; }
   // Copy a brand overrides (e.g. "appointment" instead of "cut"), per language.
@@ -172,7 +174,7 @@
 
   window.FB = {
     db, auth, BASE, VIBES, FONTS, T, FR_OPTS, SOURCES, SCORE_KEYS, DEFAULT_SERVICES, DEFAULT_WANTS,
-    DEFAULT_STEPS, stepsFor, customQ, textFor,
+    DEFAULT_STEPS, stepsFor, qualityFor, customQ, textFor,
     blankBarber, loadBarber, applyTheme, loadFont, esc, slugify, surveyUrl, dashUrl, igUrl,
     ADMIN: 'noriodeobaro@gmail.com'
   };
